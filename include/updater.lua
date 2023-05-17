@@ -96,12 +96,13 @@ for i = 1, 3 do
 		print('Remote Version: v'..remversion..' is newer than Client Version: v'..gVersion)
 		
 		local gh_zip_url = 'https://github.com/'..username..'/'..repo..'/archive/refs/heads/'..branch..'.zip'										-- Download the entire repository as a .zip file
-		local curlcmd_zip = 'curl -Ls '..gh_zip_url..' >'..gpUpdateFolder..'\\new.zip'																					--
+		local curlcmd_zip = 'curl -Ls '..gh_zip_url..' >'..gpUpdateFolder..'\\GUITest.zip'																					--
 		os.execute(curlcmd_zip)																																											--
 		
 		local tempdir = gpAlpha..'\\temp'																																							-- Extract the files to a temporary directory
 		os.execute('if not exist '..tempdir..' mkdir '..tempdir)																														--
-		os.execute('powershell Expand-Archive -Path '..gpUpdateFolder..'\\new.zip -DestinationPath '..tempdir..' -Force')			--
+		print ( 'Extracting Files' )
+		os.execute('powershell Expand-Archive -Path '..gpUpdateFolder..'\\GUITest.zip -DestinationPath '..tempdir..' -Force')		--
 
 		os.execute('powershell Move-Item -Force '..tempdir..'\\'..repo..'-main\\* '..gpAlpha..'\\')														-- Move the files to the Parent Directory
 
