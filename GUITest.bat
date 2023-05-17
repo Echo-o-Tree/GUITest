@@ -20,7 +20,7 @@ set gpLuaBin=%gpAlhpa%\lua\bin
 set lua=%gpLuaBin%\lua.exe
 
 ::next, we'll call our executable variable, with the name of the script we're trying to run
-%lua% GUITest.lua
+%lua% GUITest.wx.lua
 
 ::finally, we'll pause the batch, so that it doesn't automatically close when the script is done
-::pause ::this bit isn't necessary for a GUI
+pause ::this bit isn't necessary for a GUI
